@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+(function(){try{
+  var q=location.search.indexOf('desktop=1')>-1;
+  if(q){sessionStorage.setItem('ec-desktop','1');}
+  var keep=sessionStorage.getItem('ec-desktop')==='1';
+  var small=Math.min(screen.width,window.innerWidth)<760;
+  var touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+  if(small&&touch&&!keep){location.replace('m.html'+location.hash);}
+}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Edge Case</title>
 <meta name="description" content="Edge Case. Continual learning to turn rookie robots into vets. First lesson: touch.">
